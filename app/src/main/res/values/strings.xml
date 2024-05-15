@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">NbaApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="swap_conference">Swap Conference</string>
+    <string name="western_conference">Western Conference</string>
+    <string name="eastern_conference">Eastern Conference</string>
+    <string name="team_logo">Team logo</string>
 </resources>

@@ -2,7 +2,7 @@
 plugins {
     alias(libs.plugins.android.application) apply false
     alias(libs.plugins.jetbrains.kotlin.android) apply false
-    id("com.google.dagger.hilt.android") version "2.46.1" apply false
-    id("androidx.navigation.safeargs.kotlin") version "2.7.1" apply false
+    alias(libs.plugins.dagger.hilt.plugin.android) apply false
+    alias(libs.plugins.navigation.safeargs.kotlin) apply false
     kotlin("kapt") version "1.9.24" apply false
 }

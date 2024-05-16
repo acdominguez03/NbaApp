@@ -37,18 +37,24 @@ class HomeFragment : Fragment() {
         recyclerView = binding.rvTeams
 
         lifecycleScope.launch {
-            viewmodel.uiState.collect {
-                if (!it.isLoading) {
+            viewmodel.uiState.collect { state ->
+                if (state.isLoading) {
+                    binding.progressBar.visibility = View.VISIBLE
+                } else {
                     binding.progressBar.visibility = View.GONE
                 }
 
-                if (it.isWesternConference) {
-                    teamStandingAdapter = TeamStandingAdapter(it.westernTeamsList) { teamId ->
+                if (state.errorMessage.isNotEmpty()) {
+                    binding.tvError.text = state.errorMessage
+                }
+
+                if (state.isWesternConference) {
+                    teamStandingAdapter = TeamStandingAdapter(state.westernTeamsList) { teamId ->
                         onItemSelected(teamId)
                     }
                     binding.tvConference.text = getString(R.string.western_conference)
                 } else {
-                    teamStandingAdapter = TeamStandingAdapter(it.easternTeamsList) { teamId ->
+                    teamStandingAdapter = TeamStandingAdapter(state.easternTeamsList) { teamId ->
                         onItemSelected(teamId)
                     }
                     binding.tvConference.text = getString(R.string.eastern_conference)

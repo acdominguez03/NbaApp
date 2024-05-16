@@ -28,12 +28,26 @@ class DetailViewModel @Inject constructor(
             state.get<Int>("teamId")?.let {
                 useCase.invoke(it).collect { result ->
                     when(result) {
-                        is Result.Error -> {}
-                        is Result.Loading -> {}
+                        is Result.Error -> {
+                            _uiState.tryEmit(
+                                _uiState.value.copy(
+                                    isLoading = false,
+                                    errorMessage = result.message ?: ""
+                                )
+                            )
+                        }
+                        is Result.Loading -> {
+                            _uiState.tryEmit(
+                                _uiState.value.copy(
+                                    isLoading = true
+                                )
+                            )
+                        }
                         is Result.Success ->  {
                             _uiState.tryEmit(
                                 _uiState.value.copy(
-                                    team = result.data
+                                    team = result.data,
+                                    isLoading = false
                                 )
                             )
                         }
@@ -47,6 +61,7 @@ class DetailViewModel @Inject constructor(
 
     data class DetailState(
         val isLoading: Boolean = false,
+        val errorMessage: String = "",
         val team: TeamDetailModel? = null
     )
 }

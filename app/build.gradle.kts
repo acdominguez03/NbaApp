@@ -1,8 +1,8 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
-    id("com.google.dagger.hilt.android")
-    id("androidx.navigation.safeargs.kotlin")
+    alias(libs.plugins.dagger.hilt.plugin.android)
+    alias(libs.plugins.navigation.safeargs.kotlin)
     kotlin("kapt")
 }
 
@@ -62,12 +62,11 @@ dependencies {
     implementation(libs.dagger.hilt.android)
     kapt(libs.dagger.hilt.compiler)
 
-    implementation("androidx.fragment:fragment-ktx:1.6.2")
+    implementation(libs.androidx.fragment.ktx)
 
-    val navVersion = "2.7.7"
     //NavComponent
-    implementation("androidx.navigation:navigation-fragment-ktx:$navVersion")
-    implementation("androidx.navigation:navigation-ui-ktx:$navVersion")
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 
-    implementation("com.github.bumptech.glide:glide:4.11.0")
+    implementation(libs.glide)
 }

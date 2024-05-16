@@ -4,4 +4,18 @@
     <string name="western_conference">Western Conference</string>
     <string name="eastern_conference">Eastern Conference</string>
     <string name="team_logo">Team logo</string>
+    <string name="total_games_stats">%1$s W - %2$s L</string>
+    <string name="total_average_points">Media de %1$s a favor y %2$s en contra</string>
+    <string name="wins_at_home">Victorias: %1$s</string>
+    <string name="wins_away">Victorias: %1$s</string>
+    <string name="loses_at_home">Derrotas: %1$s</string>
+    <string name="loses_away">Derrotas: %1$s</string>
+    <string name="points_for_at_home">Puntos a favor: %1$s</string>
+    <string name="points_for_away">Puntos a favor: %1$s</string>
+    <string name="average_points_for_at_home">Media de puntos: %1$s</string>
+    <string name="average_point_for_away">Media de puntos: %1$s</string>
+    <string name="points_against_at_home">Puntos en contra: %1$s</string>
+    <string name="points_against_away">Puntos en contras: %1$s</string>
+    <string name="average_points_against_at_home">Media de puntos: %1$s</string>
+    <string name="average_points_against_away">Media de puntos: %1$s</string>
 </resources>

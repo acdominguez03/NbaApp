@@ -23,7 +23,13 @@ class HomeViewModel @Inject constructor(
         viewModelScope.launch {
             useCase.invoke().collect { result ->
                 when(result) {
-                    is Result.Error -> TODO()
+                    is Result.Error -> {
+                        _uiState.tryEmit(
+                            _uiState.value.copy(
+                                errorMessage = result.message ?: ""
+                            )
+                        )
+                    }
                     is Result.Loading -> {
                         _uiState.tryEmit(
                             _uiState.value.copy(
@@ -60,6 +66,7 @@ class HomeViewModel @Inject constructor(
     }
     data class HomeState(
         val isLoading: Boolean = false,
+        val errorMessage: String = "",
         val westernTeamsList: List<TeamStandingModel> = emptyList(),
         val easternTeamsList: List<TeamStandingModel> = emptyList(),
         val isWesternConference: Boolean = true

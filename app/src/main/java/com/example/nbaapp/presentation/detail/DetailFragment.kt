@@ -58,6 +58,8 @@ class DetailFragment : Fragment() {
         Glide.with(this@DetailFragment).load(team.logo).into(binding.ivLogo)
         binding.tvTotalGamesStats.text = getString(R.string.total_games_stats, team.totalWins.toString(), team.totalLoses.toString())
         binding.tvTotalAveragePoints.text = getString(R.string.total_average_points, team.totalAveragePointFor, team.totalAveragePointAgainst)
+        binding.tvLocal.text = getString(R.string.local)
+        binding.tvAway.text = getString(R.string.away)
 
         showLocalData(team)
         showAwayData(team)

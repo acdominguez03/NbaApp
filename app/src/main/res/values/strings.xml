@@ -18,4 +18,6 @@
     <string name="points_against_away">Puntos en contras: %1$s</string>
     <string name="average_points_against_at_home">Media de puntos: %1$s</string>
     <string name="average_points_against_away">Media de puntos: %1$s</string>
+    <string name="local">LOCAL</string>
+    <string name="away">VISITANTE</string>
 </resources>
